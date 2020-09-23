@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1f05b475d8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <!-- FILES USED TO OPEN THE FILEVIEWER -->
+    <h1 id="heading" style="text-align: center;">Click on the file to view</h1>
+<div class="row">
+    <div class="column">
+      <img src="img1.jpeg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img2.jpeg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img-3-pdf-file1.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img-4-txt-file1.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img-5-txt-file2.png" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img-6-docx-file.png" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="img-7-pdf-file2.png" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow">
+    </div>
+  </div>
+  
+  <!-- THE FILE VIEWER -->
+  <div id="myModal" class="modal">
+    <!-- <div class="icons">
+    <i class="fas fa-trash" onclick="deleteModal()"></i>
+    <i class="fas fa-download"></i>
+    <i class="fas fa-times" onclick="closeModal()"></i>
+    </div> -->
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+  
+      <div class="mySlides">
+        <div class="numbertext">1 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal1()"></i>
+        <a href="img1.jpeg" download><i class="fas fa-download"></i></a>
+        </div>
+        <img src="img1.jpeg" height="400px" id="one">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">2 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal2()"></i>
+          <a href="img1.jpeg" download><i class="fas fa-download"></i></a></div>
+        <img src="img2.jpeg" height="400px" id="two">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">3 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal3()"></i>
+          <a href="NetAcad Learning Transcript.pdf" download><i class="fas fa-download"></i></a></div>
+        <iframe src="NetAcad Learning Transcript.pdf" width="100%" id="three"></iframe>
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">4 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal4()"></i>
+          <a href="text.txt" download><i class="fas fa-download"></i></a></div>
+        <iframe src="text.txt" width="100%" id="four"></iframe>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">5 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal5()"></i>
+          <a href="text2.txt" download><i class="fas fa-download"></i></a></div>
+        <iframe src="text2.txt" width="100%" id="five"></iframe>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">6 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal6()"></i>
+          <a href="Document.docx" download><i class="fas fa-download"></i></a></div>
+          <div class="text"><h1 style="padding-top: 150px;">Download the file to view</h1></div>
+        <!-- <iframe src="Document.docx" width="100%" id="six"></iframe> -->
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">7 / 7</div>
+        <div class=icons><i class="fas fa-trash" onclick="deleteModal7()"></i>
+          <a href="Brochure-PDF.pdf" download><i class="fas fa-download"></i></a></div>
+        <iframe src="Brochure-PDF.pdf" width="100%" id="seven"></iframe>
+      </div>
+  
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+      <!-- Caption text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+  
+      <!-- Thumbnail image controls -->
+      <!-- <div class="scrollmenu"> -->
+      <!-- <div class="row">
+      <div class="column">
+        <img class="demo" src="img1.jpeg" width="100%" onclick="currentSlide(1)" alt="Ghost Recon" id="name1">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="img2.jpeg" width="100%" onclick="currentSlide(2)" alt="Nomad" id="name2">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="img-3-pdf-file1.png" width="100%" onclick="currentSlide(3)" alt="Pdf file-1" id="name3">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="img-4-txt-file1.png" width="100%" onclick="currentSlide(4)" alt="Text file-1" id="name4">
+      </div>
+      
+      <div class="column">
+        <img class="demo" src="img-5-txt-file2.png" width="100%" onclick="currentSlide(5)" alt="Text file-2" id="name5">
+      </div>
+
+      <div class="column">
+        <img class="demo" src="img-6-docx-file.png" width="100%" onclick="currentSlide(6)" alt="Docx file" id="name6">
+      </div>
+
+      <div class="column">
+        <img class="demo" src="img-7-pdf-file2.png" width="100%" onclick="currentSlide(7)" alt="Pdf file-2" id="name7">
+      </div>
+    </div> -->
+
+    <!-- SCROLLMENU TRIAL -->
+    <div class="scrollmenu">
+      
+        <img class="demo" src="img1.jpeg" width="30%" onclick="currentSlide(1)" alt="Ghost Recon" id="name1">
+        <img class="demo" src="img2.jpeg" width="30%" onclick="currentSlide(2)" alt="Nomad" id="name2">
+        <img class="demo" src="img-3-pdf-file1.png" width="30%" onclick="currentSlide(3)" alt="Pdf file-1" id="name3">
+        <img class="demo" src="img-4-txt-file1.png" width="30%" onclick="currentSlide(4)" alt="Text file-1" id="name4">
+        <img class="demo" src="img-5-txt-file2.png" width="30%" onclick="currentSlide(5)" alt="Text file-2" id="name5">
+        <img class="demo" src="img-6-docx-file.png" width="30%" onclick="currentSlide(6)" alt="Docx file" id="name6">
+        <img class="demo" src="img-7-pdf-file2.png" width="30%" onclick="currentSlide(7)" alt="Pdf file-2" id="name7">
+      
+    </div>
+    
+
+    <!-- SCROLLMENU TRIAL END -->
+ 
+    
+  
+  </div> <!-- class="modal-content" end -->
+  </div> <!-- class="modal" end -->
+  <script src= "index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
