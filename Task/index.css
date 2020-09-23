@@ -7,11 +7,6 @@
     display: table;
     clear: both;
   }
-  /* .rw1 {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 20px;
-  } */
   
   /* Create four equal columns that floats next to eachother */
   .column {
